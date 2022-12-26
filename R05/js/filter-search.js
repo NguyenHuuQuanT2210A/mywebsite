@@ -14,7 +14,7 @@
         cache.forEach(function(img) {
             var index = 0;
             if (query) {
-                index = img.text.index0f(query);
+                index = img.text.indexOf(query);
             }
             img.element.style.display = index == -1 ? 'none' : '';
         });
