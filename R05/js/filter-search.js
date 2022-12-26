@@ -3,15 +3,15 @@
     var $search = $('#filter-search');
     var cache = [];
 
-    $imgs.each(function(){
+    $imgs.each(function() {
         cache.push({
-            elements: this,
+            element: this,
             text: this.alt.trim().toLowerCase()
         });
     });
     function filter() {
         var query = this.value.trim().toLowerCase();
-        cache.forEach(function(img){
+        cache.forEach(function(img) {
             var index = 0;
             if (query) {
                 index = img.text.index0f(query);
