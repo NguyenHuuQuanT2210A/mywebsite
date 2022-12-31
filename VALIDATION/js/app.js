@@ -3,7 +3,7 @@ const emailEl = document.querySelector('#email');
 const passwordEl = document.querySelector('#password');
 const confirmPasswordEl = document.querySelector('#confirm-password');
 
-const from = document.querySelector('#signup');
+const form = document.querySelector('#signup');
 
 const checkUsername = () => {
     let valid = false;
@@ -11,7 +11,7 @@ const checkUsername = () => {
     const min = 3,
     max = 25;
 
-    const username = usernameEl.ariaValueMax.trim();
+    const username = usernameEl.value.trim();
     if (!isRequired(username)) {
         showError(usernameEl, 'Username cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
@@ -22,6 +22,21 @@ const checkUsername = () => {
     }
     return valid;
 };
+
+const checkEmail = () => {
+    let valid = false;
+    const email = emailEl.value.trim();
+    if (!isRequired(email)) {
+        showError(emailEl, 'Email cannot be blank.');
+    } else if (!isEmailValid(email)) {
+        showError(emailEl, 'Email is not valid.')
+    } else {
+        showSuccess(emailEl);
+        valid = true;
+    }
+    return valid;
+};
+
 const checkPassword = () => {
     let valid = false;
 
@@ -41,7 +56,7 @@ const checkPassword = () => {
 const checkConfirmPassword = () => {
     let valid = false;
     //check confirm password
-    const confirmPassword = confirmPasswordEL.value.trim();
+    const confirmPassword = confirmPasswordEl.value.trim();
     const password = passwordEl.value.trim();
     if (!isRequired(confirmPassword)) {
         showError(confirmPasswordEl, 'Please enter the password again');
@@ -66,7 +81,7 @@ const isPasswordSecure = (password) => {
 };
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
-const showError = (input, massage) => {
+const showError = (input, message) => {
     //get the form field element
     const formField = input.parentElement;
     //add the error class
@@ -76,7 +91,7 @@ const showError = (input, massage) => {
     const error = formField.querySelector('small');
     error.textContent = message;
 };
-const showSucces = (inout) => {
+const showSuccess = (input) => {
     // get the form-field element
     const formField = input.parentElement;
     //Remove the error class

@@ -17,7 +17,7 @@ form.addEventListener("submit", (e) => {
     engine(password, 2, "Password cannot be blank");
 });
 
-let engine = (id, serial, massage) => {
+let engine = (id, serial, message) => {
     if (id.value.trim() === "") {
         errorMSg[serial].innerHTML = message;
         id.style.border = "2px solid red";
