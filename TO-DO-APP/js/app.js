@@ -7,7 +7,7 @@ let tasks = document.getElementById("tasks");
 let add = document.getElementById("add");
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); //Bat dong bo javascript. Cac su kien dien ra tuan tu
     formValidation();
 });
 
@@ -28,7 +28,7 @@ let formValidation = () => {
     }
 };
 
-let data = [{}];
+let data = [{}];//khai bao Array data bat dau tu 0
 let acceptData = () => {
     data.push({
         text: textInput.value,
@@ -73,7 +73,7 @@ let editTask = (e) => {
 let resetForm = () => {
     textInput.value = "";
     dateInput.value = "";
-    textarea = "";
+    textarea.value = "";
 };
 (() => {
     data = JSON.parse(localStorage.getItem("data")) || []
