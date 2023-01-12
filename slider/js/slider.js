@@ -31,7 +31,7 @@ $('.slider').each(function(){
         })
     }
 
-    function acvance() {
+    function advance() {
         clearTimeout(timeout);
         timeout = setTimeout(function() {
             if (currentIndex < ($slides.length - 1)) {
