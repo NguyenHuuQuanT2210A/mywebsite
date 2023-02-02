@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js" ></script>
+    <title>Angularjs MVC Framework</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Hello, {{ name }}</h1>
+    <button ng-click="click()">Click Me!</button>\
+    
+    <script>
+    /// Define an Angularjs module - Dinh nghia ung dung Angularjs
+    var app = angular.module('myApp',[]);
+    // Define Controller
+    app.controller('myCtrl',function($scope) {
+
+    $scope.name ="Giang";
+
+    $scope.click = function(){
+        if($scope.name == "Giang"){
+            $scope.name = "Tam";
+        }else {
+            $scope.name ="Thanh";
+        }
+    }
+});
+</script>
+</body>
+</html>
