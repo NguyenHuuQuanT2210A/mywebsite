@@ -1,4 +1,4 @@
-angular.module("app",[]);
+angular.module("app",[]); //trong module chứa 1 hoặc nhiều controller
 angular.module("app").controller("MainController", function () {
     var vm = this;
     vm.title = "Learn Angular by example";
