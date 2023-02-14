@@ -1,0 +1,39 @@
+.error {
+    color: red;
+  }
+ .btn.btn-primary--cancel {
+background-color: rgb(19, 19, 211);
+color: white;
+ }
+ 
+.container{
+    padding: 50px;
+    border-radius: 10px;
+    max-height: 800px;
+    
+}
+.table{
+    margin:50px;
+    margin-left: 200px;
+    border-radius: 15px;
+}
+.login {
+    margin-top: 60px;
+    border: 2px solid rgba(9, 182, 251, 0.5);
+    border-radius: 4px;
+}
+.login__header {
+    background-color: rgba(9, 182, 251, 0.5);
+}
+.login__container {
+    padding: 20px 8px ;
+}
+.btn-login {
+    background-color: rgb(17, 204, 42);
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+.login__header {
+    padding: 10px 0 10px 8px;
+}

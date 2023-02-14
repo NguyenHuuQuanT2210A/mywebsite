@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body ng-app="validationApp" ng-controller="mainController">
+    <div class="container" style="width:600px">
+    <!--Register-->
+    <h1>Registration</h1>
+        <!-- pass in the variable if our form is valid or invalid -->
+        <form name="registerForm" ng-submit="submitForm(registerForm.$valid)" novalidate>
+            <!-- USERNAME -->
+            <div class="form-group" ng-class="{ 'has-error' : 
+                 registerForm.name.$invalid && !registerForm.name.$pristine }">
+                <label><b>User name *</b></label>
+                <input type="text" name="name" class="form-control" ng-model="name" 
+                       ng-minlength="3" ng-maxlength="15" required>
+                <p ng-show="registerForm.name.$dirty && registerForm.name.$error.required" 
+                   class="error">Name is required</p>
+                <p ng-show="registerForm.name.$error.minlength" class="error">
+                   Name is too short.
+                </p>
+                <p ng-show="registerForm.name.$error.maxlength" class="error">
+                  Name is too long.
+                </p>
+            </div>         
+          
+            <!-- Password -->
+            <div class="form-group" ng-class="{ 'has-error' : 
+                 registerForm.password.$invalid && !registerForm.password.$pristine }">
+                <label><b>Password *</b></label>
+                <input type="password" name="password" class="form-control" ng-minlength="6" ng-maxlength="15"
+                       ng-model="password" required>
+                <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" 
+                   class="error">Password must be between 6-15 characters.</p>
+            </div>       
+             <!--Repeat Password -->
+             <div class="form-group" ng-class="{ 'has-error' : 
+             registerForm.password.$invalid && !registerForm.password.$pristine }">
+            <label><b>Repeat password *</b></label>
+            <input type="password" name="repeatpassword" class="form-control" ng-model="repeatpassword" required>
+            <p ng-show="registerForm.repeatpassword.$invalid && !registerForm.repeatpassword.$pristine " 
+               class="error">Password must be equal</p>
+        </div>       
+              <!-- EMAIL -->
+              <div class="form-group" ng-class="{ 'has-error' : 
+              registerForm.email.$invalid && !registerForm.email.$pristine }">
+             <label><b>Email *</b></label>
+             <input type="email" name="email" class="form-control" 
+             ng-pattern="emailrg"  ng-model="email">
+             <p 
+           ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" 
+             class="error">
+               Enter a valid email.
+             </p>
+         </div>
+            <button type="submit" class="btn btn-primary--submit" ng-click="addUser()">
+              Submit 
+            </button>    
+            <button type="submit" class="btn btn-primary--cancel" ng-click="removeUser()">
+              Cancel
+            </button>        
+        </form>
+        <!--Login form-->
+        <div class="login">
+        <h4 class="login__header">Sign in</h4>
+        <div class="login__container">
+        <form name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate>
+       <!-- USERNAME -->
+       <div class="form-group" ng-class="{ 'has-error' : 
+       loginForm.name.$invalid && !loginForm.name.$pristine }">
+      <input type="text" name="name" class="form-control" ng-model="name"  placeholder="Email address"
+             ng-minlength="3" ng-maxlength="15" required>
+      <p ng-show="loginForm.name.$dirty && loginForm.name.$error.required" 
+         class="error">Name is required</p>
+      <p ng-show="loginForm.name.$error.minlength" class="error">
+         Name is too short.
+      </p>
+      <p ng-show="loginForm.name.$error.maxlength" class="error">
+        Name is too long.
+      </p>
+  </div>         
+
+  <!-- Password -->
+  <div class="form-group" ng-class="{ 'has-error' : 
+       loginForm.password.$invalid && !loginForm.password.$pristine }">
+      <input type="password" name="password" class="form-control" ng-minlength="6" ng-maxlength="15" placeholder="Password"
+             ng-model="password" required>
+      <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" 
+         class="error">Password must be between 6-15 characters.</p>
+  </div>       
+  <button type="submit" class="btn-login" ng-click="addUser()">
+    Login
+  </button>
+</div> 
+</div>
+</div>
+        <script src="app.js"></script>
+    </body>
+</html>

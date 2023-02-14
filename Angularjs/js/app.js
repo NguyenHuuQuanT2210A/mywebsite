@@ -34,7 +34,7 @@ angular.module("app").controller("MainController", function () {
         {
             id: 1,
             title: "Author Ascending",
-            ket: "author",
+            key: "author",
             reverse: false 
         },
         {
