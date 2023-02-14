@@ -14,6 +14,7 @@
 <body ng-app="validationApp" ng-controller="mainController">
     <div class="container" style="width:600px">
     <!--Register-->
+    <div class="register">
     <h1>Registration</h1>
         <!-- pass in the variable if our form is valid or invalid -->
         <form name="registerForm" ng-submit="submitForm(registerForm.$valid)" novalidate>
@@ -69,6 +70,7 @@
               Cancel
             </button>        
         </form>
+    </div>
         <!--Login form-->
         <div class="login">
         <h4 class="login__header">Sign in</h4>

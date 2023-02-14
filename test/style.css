@@ -7,10 +7,12 @@ color: white;
  }
  
 .container{
-    padding: 50px;
+   padding: 10px 50px 50px 50px;
     border-radius: 10px;
     max-height: 800px;
-    
+}
+.register {
+    border-top: 0;
 }
 .table{
     margin:50px;
